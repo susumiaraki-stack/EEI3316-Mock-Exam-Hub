@@ -37,7 +37,7 @@ export default function TOEICModuleView({
 
           <div className="flex flex-wrap gap-2">
             {[
-              { id: 'quiz', label: '20-Question Quiz & Part 5 Drills' },
+              { id: 'quiz', label: '50-Question Quiz & Part 5/6/7 Drills' },
               { id: 'blueprint', label: 'Exam Structure & Pacing Strategy' },
               { id: 'collocations', label: '8 Core Corporate Collocations Deck' }
             ].map((t) => (
@@ -177,10 +177,10 @@ export default function TOEICModuleView({
       {activeTab === 'quiz' && (
         <MCQQuizEngine
           questions={toeicQuestions}
-          title="Module B: TOEIC History, Pacing & Part 5 Collocation Drills (20 Qs)"
-          subtitle="Covers 1979 origin, L&R/S&W/Bridge specifications, Part 7 time budgeting, and corporate collocations."
+          title="Module B: TOEIC History, Pacing & Part 5/6/7 Drills (50 Qs)"
+          subtitle="Covers 1979 origin, L&R/S&W/Bridge specifications, Part 7 time budgeting, grammar inversions, subjunctives, and corporate collocations."
           mode={mode}
-          examDurationMinutes={20}
+          examDurationMinutes={40}
           savedAnswers={savedAnswers}
           onAnswerRecord={onAnswerRecord}
           bookmarks={bookmarks}

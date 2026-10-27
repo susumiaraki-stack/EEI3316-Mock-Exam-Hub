@@ -38,8 +38,8 @@ export default function TKTModuleView({
           </div>
           <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-3.5 text-xs space-y-1">
             <div className="font-bold text-indigo-200 uppercase tracking-wider">Question Bank</div>
-            <div className="text-2xl font-black text-white">30 Items</div>
-            <div className="text-indigo-200">10 Core Diagnostic + 20 TKT M1–M3</div>
+            <div className="text-2xl font-black text-white">60 Items</div>
+            <div className="text-indigo-200">10 Core Diagnostic + 50 TKT M1–M3/CLIL/YL</div>
           </div>
         </div>
       </div>
@@ -85,9 +85,9 @@ export default function TKTModuleView({
         </div>
         <div className="flex flex-wrap gap-2">
           {[
-            { id: 'ALL', label: 'All 30 TKT & Core Questions' },
+            { id: 'ALL', label: 'All 60 TKT & Core Questions' },
             { id: 'CORE10', label: 'Exact 10 Course Mock Diagnostic Qs (Q1–10)' },
-            { id: 'M1_3', label: '20 Extended TKT Modules 1, 2 & 3 Qs (Q11–30)' }
+            { id: 'M1_3', label: '50 Extended TKT Modules 1–3, CLIL & YL Qs (Q11–60)' }
           ].map((tab) => (
             <button
               key={tab.id}

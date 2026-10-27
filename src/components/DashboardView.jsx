@@ -42,11 +42,11 @@ export default function DashboardView({
     return { attempted, correct, accuracy, completion, totalAvailable };
   };
 
-  // Totals: TKT = 30, TOEIC = 20, TOEFL = 56 (5 theory + 20 reading + 21 listening + 10 build sentences), IELTS = 43 (5 theory + 25 listening + 13 reading)
-  const tktStats = calcModuleStats('TKT', 30);
-  const toeicStats = calcModuleStats('TOEIC', 20);
-  const toeflStats = calcModuleStats('TOEFL', 56);
-  const ieltsStats = calcModuleStats('IELTS', 43);
+  // Totals: TKT = 60, TOEIC = 50, TOEFL = 76 (25 theory + 20 reading + 21 listening + 10 build sentences), IELTS = 63 (25 theory + 25 listening + 13 reading)
+  const tktStats = calcModuleStats('TKT', 60);
+  const toeicStats = calcModuleStats('TOEIC', 50);
+  const toeflStats = calcModuleStats('TOEFL', 76);
+  const ieltsStats = calcModuleStats('IELTS', 63);
 
   const totalAttempted = entries.length;
   const totalCorrect = entries.filter(([, v]) => v.correct).length;
@@ -105,9 +105,9 @@ export default function DashboardView({
       stats: tktStats,
       accent: 'from-indigo-600 to-indigo-800',
       highlights: [
-        '10 Exact Course Mock Qs + 20 TKT M1–M3 Qs',
+        '60 High-Yield Questions (10 Core + 50 TKT M1–M3, CLIL, YL)',
         'CEFR B2 Equivalencies & TKT vs. CELTA/DELTA',
-        'CCQs vs. ICQs, Minimal Pairs, Overgeneralization, Scaffolding'
+        'CCQs vs. ICQs, Phonology, SLA, Lesson Planning & Correction'
       ]
     },
     {
@@ -120,7 +120,7 @@ export default function DashboardView({
       highlights: [
         '1979 Origin (Yasuo Kitaoka / ETS) & 10–990 Equating',
         '75-Minute Reading Pacing (<20m P5/6, 25m/15m/15m P7)',
-        '8 High-Yield Corporate Collocations & 20-Q Drill'
+        '50-Question Quiz: Collocations, Subjunctives, Inversions & Part 6/7'
       ]
     },
     {
@@ -131,8 +131,8 @@ export default function DashboardView({
       stats: toeflStats,
       accent: 'from-violet-600 to-indigo-800',
       highlights: [
-        '3 Timed Reading Passages (Honey, Gray Wolf, Invasive Species)',
-        '3 Web Speech TTS Listening Sets (Camouflage, Supply/Demand, Prof. Lewis)',
+        '25 Redesign Theory Qs + 3 Timed Reading Passages (20 Qs)',
+        '3 Web Speech TTS Listening Sets (21 Qs: Camouflage, Supply/Demand, Lewis)',
         '4 Timed Speaking Tasks + 2026 Writing (10 Sentences, Email, Discussion)'
       ]
     },
@@ -144,7 +144,7 @@ export default function DashboardView({
       stats: ieltsStats,
       accent: 'from-emerald-600 to-teal-800',
       highlights: [
-        '5 March 2026 Computer Shift, One Skill Retake & Band Rounding',
+        '25 Theory & Band Descriptor Qs + Band Rounding Calculator',
         'Auto-Graded Q1–25 Listening Mock (Form, Notes, Speaker Matching)',
         'Urban Trees Reading (Q1–13), Westford Table T1, Essay T2 & Cue Card'
       ]
@@ -152,20 +152,20 @@ export default function DashboardView({
     {
       id: 'final',
       code: 'Module E',
-      title: 'Full Final Exam Simulator',
+      title: 'Full Final Exam Simulator (201-Q Pool)',
       icon: Award,
       stats: {
         attempted: totalAttempted,
         correct: totalCorrect,
         accuracy: overallAccuracy,
-        completion: Math.min(100, Math.round((totalAttempted / 101) * 100)),
-        totalAvailable: 101
+        completion: Math.min(100, Math.round((totalAttempted / 201) * 100)),
+        totalAvailable: 201
       },
       accent: 'from-amber-600 to-orange-700',
       highlights: [
-        '60-Question Core Syllabus Final or 101-Question Master Bank',
-        'Strict Countdown Timer & Flag-for-Review Navigation Palette',
-        'Comprehensive Post-Submission Diagnostic Breakdown'
+        'Draws Stratified Random 30, 60, or 100 Qs from 201 Master Items',
+        'Auto-Shuffles Question Order & A–D Choices on Every Attempt',
+        'Strict Countdown Timer, Flag-for-Review Palette & Diagnostic'
       ]
     }
   ];

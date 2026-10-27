@@ -49,7 +49,7 @@ export default function FinalSimulatorView({
   bookmarks,
   onToggleBookmark
 }) {
-  const [preset, setPreset] = useState('core60'); // 'random40' | 'core60' | 'full101'
+  const [preset, setPreset] = useState('random60'); // 'random30' | 'random60' | 'random100' | 'full201'
   const [shuffleQuestions, setShuffleQuestions] = useState(true);
   const [shuffleChoices, setShuffleChoices] = useState(true);
   const [shuffleSeed, setShuffleSeed] = useState(1);
@@ -57,29 +57,45 @@ export default function FinalSimulatorView({
   const generatedExamQuestions = useMemo(() => {
     const toeflReadingQs = toeflReadingPassages.flatMap((p) => p.questions);
     const toeflListeningQs = toeflListeningSets.flatMap((l) => l.questions);
+    const allToeflPool = [...toeflTheoryQuestions, ...toeflReadingQs, ...toeflListeningQs];
 
     const fullPool = [
       ...tktQuestions,
       ...toeicQuestions,
-      ...toeflTheoryQuestions,
-      ...toeflReadingQs,
-      ...toeflListeningQs,
-      ...ieltsTheoryQuestions
-    ];
-
-    const corePool = [
-      ...tktQuestions,
-      ...toeicQuestions,
-      ...toeflTheoryQuestions,
+      ...allToeflPool,
       ...ieltsTheoryQuestions
     ];
 
     let baseList = [];
-    if (preset === 'random40') {
-      baseList = shuffleArray(fullPool).slice(0, 40);
-    } else if (preset === 'core60') {
-      baseList = shuffleQuestions ? shuffleArray(corePool) : [...corePool];
+    if (preset === 'random30') {
+      // Stratified random 30 Qs: 10 TKT + 8 TOEIC + 7 TOEFL + 5 IELTS
+      const pick = [
+        ...shuffleArray(tktQuestions).slice(0, 10),
+        ...shuffleArray(toeicQuestions).slice(0, 8),
+        ...shuffleArray(allToeflPool).slice(0, 7),
+        ...shuffleArray(ieltsTheoryQuestions).slice(0, 5)
+      ];
+      baseList = shuffleQuestions ? shuffleArray(pick) : pick;
+    } else if (preset === 'random60') {
+      // Stratified random 60 Qs drawn from 201 items: 20 TKT + 15 TOEIC + 15 TOEFL + 10 IELTS
+      const pick = [
+        ...shuffleArray(tktQuestions).slice(0, 20),
+        ...shuffleArray(toeicQuestions).slice(0, 15),
+        ...shuffleArray(allToeflPool).slice(0, 15),
+        ...shuffleArray(ieltsTheoryQuestions).slice(0, 10)
+      ];
+      baseList = shuffleQuestions ? shuffleArray(pick) : pick;
+    } else if (preset === 'random100') {
+      // Stratified random 100 Qs drawn from 201 items: 30 TKT + 25 TOEIC + 30 TOEFL + 15 IELTS
+      const pick = [
+        ...shuffleArray(tktQuestions).slice(0, 30),
+        ...shuffleArray(toeicQuestions).slice(0, 25),
+        ...shuffleArray(allToeflPool).slice(0, 30),
+        ...shuffleArray(ieltsTheoryQuestions).slice(0, 15)
+      ];
+      baseList = shuffleQuestions ? shuffleArray(pick) : pick;
     } else {
+      // All 201 Master Bank questions
       baseList = shuffleQuestions ? shuffleArray(fullPool) : [...fullPool];
     }
 
@@ -91,15 +107,17 @@ export default function FinalSimulatorView({
   }, [preset, shuffleQuestions, shuffleChoices, shuffleSeed]);
 
   const durationMap = {
-    random40: 40,
-    core60: 60,
-    full101: 90
+    random30: 30,
+    random60: 60,
+    random100: 90,
+    full201: 150
   };
 
   const titleMap = {
-    random40: 'EEI3316 Final Simulator — Random 40-Question Set',
-    core60: 'EEI3316 Final Simulator — 60 Core Syllabus Questions',
-    full101: 'EEI3316 Final Simulator — 101 Complete Master Bank'
+    random30: 'EEI3316 Final Simulator — Stratified Random 30 Qs (from 201 Pool)',
+    random60: 'EEI3316 Final Simulator — Stratified Random 60 Qs (from 201 Pool)',
+    random100: 'EEI3316 Final Simulator — Stratified Random 100 Qs (from 201 Pool)',
+    full201: 'EEI3316 Final Simulator — All 201 Master Bank Questions'
   };
 
   return (
@@ -110,13 +128,13 @@ export default function FinalSimulatorView({
           <div className="space-y-1.5 max-w-2xl">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30">
               <Award className="w-3.5 h-3.5" />
-              Module E • Comprehensive EEI3316 Final Exam Simulator
+              Module E • Expanded 201-Question Master Bank & Randomizer
             </span>
             <h2 className="text-2xl font-extrabold tracking-tight">
-              Full Course Mock Exam (Auto-Randomizing Question & Choice Order)
+              Full Course Mock Exam (201-Item Pool with Stratified Sampling)
             </h2>
             <p className="text-xs sm:text-sm text-indigo-100/90 leading-relaxed">
-              Automatically shuffles both question order and A–D answer choices so every attempt is a fresh, authentic exam experience across TKT, TOEIC, TOEFL iBT (2026), and IELTS Academic (2026).
+              Draws balanced random subsets from <strong>201 high-difficulty questions</strong> (60 TKT + 50 TOEIC + 66 TOEFL + 25 IELTS) and shuffles both question order and A–D choices so sets do not repeat easily and distractors require genuine analysis.
             </p>
           </div>
 
@@ -125,7 +143,7 @@ export default function FinalSimulatorView({
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-md transition"
           >
             <Shuffle className="w-4 h-4" />
-            สุ่มชุดข้อสอบใหม่ (Re-Shuffle Exam Now)
+            สุ่มชุดข้อสอบใหม่ (Generate New Random Exam)
           </button>
         </div>
 
@@ -133,9 +151,10 @@ export default function FinalSimulatorView({
         <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">
             {[
-              { id: 'random40', label: 'Random 40 Qs Mock (40m)' },
-              { id: 'core60', label: '60-Question Core Syllabus Final (60m)' },
-              { id: 'full101', label: '101-Question Complete Master Bank (90m)' }
+              { id: 'random30', label: 'Random 30 Qs Sprint (30m)' },
+              { id: 'random60', label: 'Random 60 Qs Standard Final (60m)' },
+              { id: 'random100', label: 'Random 100 Qs Comprehensive (90m)' },
+              { id: 'full201', label: 'All 201 Master Bank Qs (150m)' }
             ].map((p) => (
               <button
                 key={p.id}
@@ -187,9 +206,9 @@ export default function FinalSimulatorView({
       <MCQQuizEngine
         questions={generatedExamQuestions}
         title={`${titleMap[preset]} (Set #${shuffleSeed})`}
-        subtitle={`Questions: ${shuffleQuestions ? 'Randomized' : 'Standard Order'} • Choices A–D: ${
-          shuffleChoices ? 'Randomized' : 'Standard Order'
-        } • Keyboard Shortcuts: 1–4 / A–D, Enter`}
+        subtitle={`Pool: 201 Questions • Questions: ${shuffleQuestions ? 'Randomized' : 'Standard'} • Choices A–D: ${
+          shuffleChoices ? 'Randomized' : 'Standard'
+        } • Shortcuts: 1–4 / A–D, Enter`}
         mode={mode}
         examDurationMinutes={durationMap[preset]}
         savedAnswers={savedAnswers}

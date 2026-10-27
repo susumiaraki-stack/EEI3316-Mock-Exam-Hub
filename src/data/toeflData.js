@@ -6,9 +6,9 @@ export const toeflTheoryQuestions = [
     question: "How did the TOEFL exam originate in the early 1960s?",
     options: [
       "The National Council on the Testing of English as a Foreign Language was formed in 1962, and the first test was administered in 1964 before coming under ETS direction.",
-      "It was launched in 1979 in Tokyo by the Ministry of International Trade and Industry for corporate employees.",
-      "It was created in 1989 by the University of Cambridge and IDP Australia.",
-      "It began in 2005 as an open-source mobile app for European secondary schools."
+      "The U.S. Department of Commerce created the test in 1979 to evaluate corporate managers transferring to American subsidiaries.",
+      "The British Council and IDP Australia established the test in 1965 as a joint transatlantic university admissions screening tool.",
+      "The Modern Language Association launched the test in 1954 exclusively for postdoctoral fellows in comparative literature."
     ],
     correctIndex: 0,
     rationale: "Correct! Thirty government and private organizations formed the National Council in 1962 to address how U.S. universities evaluated international applicants' English; the first TOEFL exam launched in 1964 and joined ETS."
@@ -20,9 +20,9 @@ export const toeflTheoryQuestions = [
     question: "Which sequence accurately traces the four major generations of the TOEFL assessment?",
     options: [
       "PBT (1964: Listening, Structure & Written Expression, Reading) → CBT (1998: computer-adaptive & essay) → iBT (2005: integrated 4 skills) → 2026 Redesign (multistage adaptive R/L & 1–6 CEFR scale)",
-      "iBT (1964) → CBT (1979) → PBT (2005) → Paper-Only (2026)",
-      "CBT (1964) → TOEIC Bridge (1985) → IELTS Academic (2005) → TKT (2026)",
-      "PBT (1990) → Speaking-Only (2000) → Grammar-Only (2015) → 2026 Redesign"
+      "CBT (1964: discrete grammar) → PBT (1979: paper essay) → iBT (1998: speaking only) → 2026 Redesign (paper-delivered format)",
+      "PBT (1964: 4 integrated skills) → iBT (1989: internet delivery) → CBT (2005: adaptive grammar) → 2026 Redesign (10–990 scale)",
+      "PBT (1972: Reading & Writing) → CBT (1990: Listening & Speaking) → iBT (2010: multistage adaptive) → 2026 Redesign (Pass/Fail)"
     ],
     correctIndex: 0,
     rationale: "Correct! Paper-Based Test (1964, discrete grammar via Structure & Written Expression) evolved into Computer-Based Test (1998), then Internet-Based Test (2005, replacing Structure with Speaking & integrated tasks), and the 2026 Redesign."
@@ -34,12 +34,12 @@ export const toeflTheoryQuestions = [
     question: "What are the two headline structural changes introduced in the 2026 TOEFL iBT Redesign?",
     options: [
       "Multistage adaptive testing in Reading and Listening, plus a new 1–6 score scale (in 0.5 increments aligned with CEFR) reported alongside the traditional 0–120 scale.",
-      "Elimination of the Speaking and Writing sections and a return to optical mark paper answer sheets.",
-      "Replacing all academic content with kindergarten phonics drills scored from 10 to 990.",
-      "A mandatory 4-hour live debate with three human examiners."
+      "Item-by-item computer adaptivity across all four skills, plus a new 100–200 score scale replacing the 0–120 scale.",
+      "Linear non-adaptive passages in Reading and Listening, plus a 1.0–9.0 band scale identical to IELTS Academic.",
+      "Removal of integrated Speaking tasks in favor of a live 15-minute video interview with two human raters."
     ],
     correctIndex: 0,
-    rationale: "Correct! Starting in 2026, TOEFL iBT uses a multistage adaptive design for Reading and Listening (adjusting difficulty in Stage 2 based on Stage 1 performance) and introduces an intuitive 1–6 scale aligned directly with CEFR levels alongside the 0–120 score."
+    rationale: "Correct! Starting in 2026, TOEFL iBT uses a multistage adaptive design for Reading and Listening (adjusting Stage 2 difficulty based on Stage 1 performance) and introduces a 1–6 scale aligned directly with CEFR levels alongside the 0–120 score."
   },
   {
     id: "toefl-th-4",
@@ -48,9 +48,9 @@ export const toeflTheoryQuestions = [
     question: "Which set of innovative task types is featured in the 2026 TOEFL iBT Redesign?",
     options: [
       "Complete the Words, Read in Daily Life, Build a Sentence, Write an Email, and Take an Interview",
-      "Part 1 Photographs, Part 2 Question-Response, and Part 5 Incomplete Sentences",
-      "True/False/Not Given, Map Labeling, and Cue Card Monologue",
-      "Structure & Written Expression Error Identification"
+      "Text Completion, Triple Passage Cross-Referencing, Describe a Workplace Photo, and Opinion Essay",
+      "True/False/Not Given, Diagram Labeling, Summary Completion, and Two-Minute Cue Card Monologue",
+      "Structure & Written Expression Error Identification, Dictation, and Sentence Translation"
     ],
     correctIndex: 0,
     rationale: "Correct! The 2026 format integrates 'Complete the Words' and 'Read in Daily Life' in Reading, 'Build a Sentence' and 'Write an Email' (plus Academic Discussion) in Writing (23 mins base time), and 'Take an Interview' in Speaking."
@@ -64,10 +64,290 @@ export const toeflTheoryQuestions = [
       "72 – 94",
       "42 – 71",
       "95 – 113",
-      "0 – 41"
+      "56 – 70"
     ],
     correctIndex: 0,
-    rationale: "Correct! ETS maps CEFR B2 to a TOEFL iBT total score of 72–94 (whereas 42–71 is B1, and 95+ is C1/C2)."
+    rationale: "Correct! ETS maps CEFR B2 to a TOEFL iBT total score of 72–94 (whereas 42–71 is B1, and 95–113 is C1)."
+  },
+  {
+    id: "toefl-th-6",
+    module: "TOEFL",
+    category: "1964 PBT vs 2005 iBT Construct Shift",
+    question: "What major construct change occurred when ETS transitioned to the TOEFL iBT in 2005?",
+    options: [
+      "The discrete-point 'Structure and Written Expression' grammar section was eliminated, Speaking was added, and integrated tasks combining Reading, Listening, and Writing/Speaking were introduced.",
+      "The Reading section was shortened to 10 minutes and replaced by a 60-minute oral translation exam.",
+      "All academic lectures were removed and replaced with business negotiation dialogues.",
+      "Human raters were completely eliminated from Writing and Speaking scoring in 2005."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! The 2005 iBT launch marked a major communicative shift: removing isolated grammar error-identification ('Structure and Written Expression') and assessing grammar organically through Speaking and Integrated Writing/Speaking tasks."
+  },
+  {
+    id: "toefl-th-7",
+    module: "TOEFL",
+    category: "2026 Multistage Adaptive Mechanics",
+    question: "In the 2026 TOEFL iBT multistage adaptive Reading and Listening sections, how does the routing mechanism work?",
+    options: [
+      "All candidates take a shared routing module in Stage 1, and their accuracy determines whether they are routed to a higher-difficulty or lower-difficulty Stage 2 module.",
+      "The computer changes the difficulty of every single question after each mouse click, forbidding test-takers from skipping or returning to previous questions within a passage.",
+      "Candidates manually choose whether they want to take the Easy, Medium, or Hard test form before starting the exam.",
+      "Stage 1 tests only vocabulary synonyms, while Stage 2 tests only 3,000-word literary essays."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Unlike item-level adaptive tests (like the 1998 CBT), multistage adaptive testing (MST) adapts between stages (Stage 1 routing module → Stage 2 targeted difficulty module), allowing candidates to review questions within the current stage."
+  },
+  {
+    id: "toefl-th-8",
+    module: "TOEFL",
+    category: "2026 1–6 CEFR-Aligned Score Scale",
+    question: "Why did ETS introduce the 1–6 score scale (in half-point increments) alongside the 0–120 scale in the 2026 TOEFL iBT Redesign?",
+    options: [
+      "To provide an intuitive 6-level scale that maps directly onto the six CEFR proficiency levels (A1, A2, B1, B2, C1, C2) for global admissions officers and test-takers.",
+      "To copy the 15–50 scale used on the TOEIC Bridge Listening and Reading exam.",
+      "Because scores above 60 on the 0–120 scale were discontinued by U.S. universities.",
+      "To grade candidates solely on six grammatical tenses."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! The 6 bands (1.0 to 6.0 in 0.5 steps) align transparently with the 6 levels of the Common European Framework of Reference (CEFR A1 through C2), while preserving the familiar 0–120 scale during transition."
+  },
+  {
+    id: "toefl-th-9",
+    module: "TOEFL",
+    category: "2026 Reading Task: Complete the Words",
+    question: "What skill does the 2026 TOEFL Reading task 'Complete the Words' (C-test style paragraph completion) primarily assess?",
+    options: [
+      "Contextual lexical, morphological, and orthographic knowledge by requiring candidates to supply the missing letters of partially deleted words within a coherent academic paragraph",
+      "Phonetic transcription of isolated Latin and Greek scientific prefixes",
+      "Free-form creative essay writing without word limits",
+      "Oral pronunciation of consonant clusters into a headset microphone"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! 'Complete the Words' measures integrated lexical, grammatical, and discourse processing efficiency by having test-takers reconstruct partially blanked words in context."
+  },
+  {
+    id: "toefl-th-10",
+    module: "TOEFL",
+    category: "2026 Reading Task: Read in Daily Life",
+    question: "Why did the 2026 TOEFL iBT add 'Read in Daily Life' items alongside traditional academic passages?",
+    options: [
+      "To assess how efficiently students can navigate practical campus and everyday informational texts—such as course syllabi, campus housing notices, emails, and schedules—required for university survival",
+      "To replace all university science and history passages with restaurant menus",
+      "To turn the TOEFL iBT into an elementary school reading test",
+      "To test whether candidates have memorized U.S. traffic laws"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! International students must read both dense academic textbooks and practical campus communications (syllabi, lab safety notices, administrative emails), so 'Read in Daily Life' broadens construct validity."
+  },
+  {
+    id: "toefl-th-11",
+    module: "TOEFL",
+    category: "Reading Question Types: Negative Factual vs Factual",
+    question: "How does a TOEFL Reading 'Negative Factual Information' question ('All of the following are mentioned in paragraph 3 EXCEPT...') differ strategically from a standard 'Factual Information' question?",
+    options: [
+      "Three of the four options are explicitly true according to the paragraph, so the test-taker must scan for all four options and select the one statement that is either contradicted or not mentioned in the text.",
+      "The test-taker only needs to read the first topic sentence of the passage to guess the answer.",
+      "All four options are false, and the test-taker must rewrite them.",
+      "Negative Factual questions are worth three points each and require selecting three choices."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Because three options are verified across different sentences of the paragraph, Negative Factual items typically take slightly longer to verify by elimination."
+  },
+  {
+    id: "toefl-th-12",
+    module: "TOEFL",
+    category: "Reading Question Types: Rhetorical Purpose",
+    question: "When a TOEFL Reading question asks, 'Why does the author mention the beaver colonies in paragraph 4?', what is it testing?",
+    options: [
+      "Rhetorical Purpose—understanding the logical role a specific example, contrast, or detail plays in supporting the author's broader argument in that paragraph",
+      "Literal Vocabulary—identifying the dictionary definition of the noun 'colony'",
+      "Prose Summary—synthesizing the entire 700-word passage into three bullet points",
+      "Negative Factual Information—finding which animal was excluded from the park"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Rhetorical Purpose questions ask WHY the author included a piece of information (e.g., 'To provide evidence that...', 'To illustrate the concept of...', 'To cast doubt on the theory that...')."
+  },
+  {
+    id: "toefl-th-13",
+    module: "TOEFL",
+    category: "Reading Question Types: Sentence Insertion",
+    question: "What linguistic clues are most reliable when solving a TOEFL Reading 'Insert a Sentence' ([■ A] [■ B] [■ C] [■ D]) question?",
+    options: [
+      "Pronoun/demonstrative referents ('These changes', 'Such organisms', 'This process') and logical transition markers ('Therefore', 'However', 'For instance') that link the inserted sentence to the sentences immediately before and after the square",
+      "Choosing the square that is closest to the middle of the paragraph regardless of meaning",
+      "Selecting the square right before the longest word in the paragraph",
+      "Always choosing the fourth square [■ D] at the end of the paragraph"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Sentence Insertion tests discourse cohesion: determiners/pronouns ('These ecological changes') must have a clear antecedent in the preceding sentence, and transitions must match the logical flow."
+  },
+  {
+    id: "toefl-th-14",
+    module: "TOEFL",
+    category: "Reading Question Types: Prose Summary Distractors",
+    question: "In a TOEFL Reading 'Prose Summary' question (where you select 3 out of 6 statements to summarize the whole passage), which type of statement is a classic INCORRECT trap?",
+    options: [
+      "A minor detail statement that is factually true in one sentence of the passage, but is too narrow and specific to represent a major thesis point of the entire text",
+      "A statement that synthesizes the main argument of an entire body section",
+      "A statement that paraphrases the cause-and-effect relationship central to the passage",
+      "A statement that captures the author's primary solution or conclusion"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In Prose Summary questions, the two main types of distractors are (1) statements that contradict the passage, and (2) 'minor detail traps'—statements that are factually true in the text but only mention a narrow supporting example rather than a main idea."
+  },
+  {
+    id: "toefl-th-15",
+    module: "TOEFL",
+    category: "Listening Question Types: Gist-Content vs Gist-Purpose",
+    question: "In TOEFL Listening, what is the difference between a 'Gist-Content' question and a 'Gist-Purpose' question?",
+    options: [
+      "Gist-Content asks what an academic lecture or conversation is mainly about, whereas Gist-Purpose asks why a student visits a professor or campus office (usually in conversations).",
+      "Gist-Content asks for a specific date or number, whereas Gist-Purpose asks for the definition of a technical term.",
+      "Gist-Content is only asked in Speaking Task 1, whereas Gist-Purpose is only asked in Writing Task 2.",
+      "There is no difference; both ask the candidate to transcribe the last sentence of the audio."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Lectures typically begin with a Gist-Content question ('What is the main topic of the lecture?'), while campus office-hours/service conversations frequently begin with a Gist-Purpose question ('Why does the student go to see the professor?')."
+  },
+  {
+    id: "toefl-th-16",
+    module: "TOEFL",
+    category: "Listening Question Types: Pragmatic Function",
+    question: "In a TOEFL Listening question that replays a short audio clip and asks, 'What does the professor mean when she says this: ...?', what is being assessed?",
+    options: [
+      "Pragmatic Function—understanding the speaker's underlying communicative intent (e.g., expressing skepticism, correcting a misconception, or redirecting the topic) rather than the literal meaning of the words",
+      "Whether the test-taker can spell every word in the replayed audio clip",
+      "The acoustic decibel level of the recording studio",
+      "The historical etymology of the professor's vocabulary"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Pragmatic Function questions test whether candidates recognize how intonation and context shape implied meaning (e.g., saying 'Well, that's one way of looking at it...' to politely signal disagreement)."
+  },
+  {
+    id: "toefl-th-17",
+    module: "TOEFL",
+    category: "Speaking Section: 3 Official Scoring Dimensions",
+    question: "According to the official ETS TOEFL iBT Speaking rubric (scored 0–4 per task), what are the three core dimensions used by human raters and the SpeechRater™ AI engine?",
+    options: [
+      "Delivery (pace, clarity, intonation, fluidity), Language Use (grammar and vocabulary range/accuracy), and Topic Development (coherence, completeness, and synthesis of details)",
+      "Accent Native-Likeness, Speed of Typing, and Handwriting Legibility",
+      "Task Achievement, Coherence & Cohesion, Lexical Resource, and Grammatical Range (0–9 scale)",
+      "Phonetic Transcription, L1 Translation, and Eye Contact"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! TOEFL Speaking responses are evaluated across three rubric pillars: Delivery, Language Use, and Topic Development (unlike IELTS, which uses Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, and Pronunciation)."
+  },
+  {
+    id: "toefl-th-18",
+    module: "TOEFL",
+    category: "Speaking Tasks 2, 3, & 4 Time Allocations",
+    question: "In the standard TOEFL iBT Speaking Tasks 1 through 4, how do the Preparation and Speaking countdown timers differ between Task 1 (Independent), Task 2 (Campus Situation), and Tasks 3–4 (Academic)?",
+    options: [
+      "Task 1: 15s Prep / 45s Speak | Task 2: 30s Prep / 60s Speak | Tasks 3 & 4: 20s Prep / 60s Speak",
+      "Task 1: 60s Prep / 120s Speak | Task 2: 60s Prep / 120s Speak | Tasks 3 & 4: 60s Prep / 120s Speak",
+      "Task 1: 30s Prep / 60s Speak | Task 2: 15s Prep / 45s Speak | Tasks 3 & 4: 45s Prep / 90s Speak",
+      "All four tasks allow 10 seconds of preparation and 30 seconds of speaking"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Task 1 Independent gives 15s prep / 45s speak; Task 2 Integrated Campus gives 45s reading + audio + 30s prep / 60s speak; Tasks 3 and 4 Integrated Academic give 20s prep / 60s speak."
+  },
+  {
+    id: "toefl-th-19",
+    module: "TOEFL",
+    category: "Speaking Task 2 Strategy (Campus Announcement)",
+    question: "In TOEFL Speaking Task 2 (Integrated Campus Announcement + Student Conversation), where should the test-taker place the majority of their speaking time (roughly 45 of the 60 seconds)?",
+    options: [
+      "On accurately reporting the opinion of the main student speaker and the two specific reasons/examples they give in the conversation to support or oppose the announcement",
+      "On giving the test-taker's own personal opinion about whether the university policy is fair",
+      "On reading the printed campus announcement aloud word for word for 45 seconds",
+      "On critiquing the grammar used by the two students in the audio"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In Task 2, the reading passage should be summarized in just 10–12 seconds; the core prompt asks you to state the speaker's opinion and explain the two reasons given in the listening conversation. Never insert your own personal opinion in Integrated Speaking!"
+  },
+  {
+    id: "toefl-th-20",
+    module: "TOEFL",
+    category: "2026 Writing Section Architecture",
+    question: "What are the three components of the redesigned 2026 TOEFL iBT Writing section (23 minutes base time)?",
+    options: [
+      "Part 1: Build a Sentence (syntactic ordering), Part 2: Write an Email (campus/academic scenario), and Part 3: Write for an Academic Discussion (10-minute online seminar post)",
+      "Part 1: 300-word Independent Essay (30 mins), Part 2: Bar Chart Summary (20 mins), and Part 3: Dictation",
+      "Part 1: 5 Picture Sentences, Part 2: 2 Business Memos, and Part 3: Opinion Essay",
+      "Part 1: Multiple-choice grammar error identification and Part 2: Literature review"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! The 2026 TOEFL Writing section streamlines assessment into Part 1 (Build a Sentence), Part 2 (Write an Email), and Part 3 (Write for an Academic Discussion)."
+  },
+  {
+    id: "toefl-th-21",
+    module: "TOEFL",
+    category: "Writing Part 1: Build a Sentence Syntax",
+    question: "In TOEFL Writing Part 1 (Build a Sentence), a candidate is given the chunks: ['did', 'Why', 'tuition fees?', 'the university', 'increase']. What grammatical rule is being tested here?",
+    options: [
+      "Subject-auxiliary inversion in direct Wh-questions ('Why did the university increase tuition fees?') as opposed to embedded indirect questions",
+      "Passive voice transformation with a modal verb",
+      "Non-restrictive appositive relative clause punctuation",
+      "Subjunctive mood following a verb of recommendation"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Direct questions ending with '?' require auxiliary inversion ('Why + did + subject + base verb'), whereas embedded noun clauses ('I wonder why the university increased...') do not invert."
+  },
+  {
+    id: "toefl-th-22",
+    module: "TOEFL",
+    category: "Writing Part 2: Write an Email Register",
+    question: "When completing TOEFL Writing Part 2 ('Write an Email' to a professor or campus office), which approach earns the highest score?",
+    options: [
+      "Using an appropriate polite academic register, addressing all three bulleted task requirements clearly, and proposing a constructive, realistic course of action",
+      "Using informal text-message slang ('Hey prof, btw I can't make it lol') to sound friendly",
+      "Writing a 400-word philosophical essay that ignores the specific scheduling conflict in the prompt",
+      "Copying the prompt instructions word for word three times to increase the word count"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! The Email task evaluates pragmatic appropriateness (salutation, polite academic register, sign-off), task fulfillment across all three required points, and syntactic clarity."
+  },
+  {
+    id: "toefl-th-23",
+    module: "TOEFL",
+    category: "Writing Part 3: Academic Discussion Strategy",
+    question: "In TOEFL Writing Part 3 ('Write for an Academic Discussion', 10 minutes, 100+ words), what is the key requirement for a top-band response?",
+    options: [
+      "Stating a clear position on the professor's question and making a relevant, original contribution that builds on or counters the student posts using your own reasoning and examples",
+      "Writing a 50-word summary of Student A's post and a 50-word summary of Student B's post without stating your own opinion",
+      "Memorizing a generic 120-word template full of proverbs that does not engage with the specific seminar topic",
+      "Writing 500 words in 10 minutes without checking grammar or cohesion"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! The Academic Discussion rubric rewards responses that directly answer the professor's prompt, engage meaningfully with the ongoing discussion, and elaborate with original support in ~110–150 well-edited words."
+  },
+  {
+    id: "toefl-th-24",
+    module: "TOEFL",
+    category: "Automated Scoring + Human Raters (e-rater & SpeechRater)",
+    question: "How does ETS combine human raters and AI scoring engines on the TOEFL iBT Speaking and Writing sections?",
+    options: [
+      "It uses a hybrid scoring model where certified human raters (assessing content, logic, and discourse) are paired with ETS proprietary AI engines (SpeechRater™ for Speaking and e-rater® for Writing) to maximize both validity and reliability.",
+      "It relies 100% on keyword counting with zero human quality control.",
+      "The test-taker's local classroom teacher grades the Speaking and Writing responses.",
+      "Responses are graded solely on total word count and speaking volume."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Combining trained human raters with SpeechRater™ and e-rater® ensures that both higher-order rhetorical/pragmatic quality and linguistic features (prosody, syntactic variety, mechanics) are evaluated reliably."
+  },
+  {
+    id: "toefl-th-25",
+    module: "TOEFL",
+    category: "TOEFL MyBest® Scores Policy",
+    question: "What does the 'MyBest® scores' (superscoring) feature on an official TOEFL iBT score report display?",
+    options: [
+      "The combination of a test-taker's highest section scores for Reading, Listening, Speaking, and Writing achieved across all valid TOEFL iBT tests taken within the past 2 years, alongside the scores from a single test date",
+      "The average score of all test-takers in the candidate's home country",
+      "A guaranteed 10-point bonus added to the candidate's first attempt",
+      "Scores from exams taken more than 10 years ago"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! MyBest® scores combine the highest individual section scores from all valid tests in the last 2 years, while also reporting the single-sit scores from the selected test date."
   }
 ];
 

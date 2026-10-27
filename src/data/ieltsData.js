@@ -6,9 +6,9 @@ export const ieltsTheoryQuestions = [
     question: "Which three organizations jointly own IELTS, and what is the total duration and structure of the four test sections?",
     options: [
       "Co-owned by British Council, IDP, and Cambridge; 2 hours 45 minutes total: Listening (30m / 40 Qs), Reading (60m / 40 Qs), Writing (60m / 2 Tasks), Speaking (11–14m / 3 Parts with a live human examiner)",
-      "Owned solely by ETS; 2 hours total: 100 Listening and 100 Reading questions",
-      "Owned by the UK Home Office; 4 hours total with computer-automated AI speaking",
-      "Co-owned by Oxford and Pearson; 80 questions in 80 minutes"
+      "Co-owned by ETS, Pearson, and Oxford; 3 hours 15 minutes total: Listening (45m / 50 Qs), Reading (75m / 50 Qs), Writing (60m / 3 Tasks), Speaking (15m computer recording)",
+      "Co-owned by British Council, UKVI, and Trinity College; 2 hours total: Listening (25m / 30 Qs), Reading (45m / 30 Qs), Writing (40m / 1 Task), Speaking (10m panel interview)",
+      "Co-owned by IDP, Cambridge, and ACTFL; 2 hours 30 minutes total with adaptive Reading and Listening modules"
     ],
     correctIndex: 0,
     rationale: "Correct! IELTS is jointly owned by the British Council, IDP: IELTS Australia, and Cambridge University Press & Assessment. Total time is ~2h 45m across L (30m/40 Qs), R (60m/40 Qs), W (60m/2 tasks), and S (11–14m/3 parts with a human examiner)."
@@ -20,9 +20,9 @@ export const ieltsTheoryQuestions = [
     question: "What major global delivery change was announced on 5 March 2026 regarding traditional paper-based IELTS testing?",
     options: [
       "Traditional paper-based IELTS is being phased out starting mid-2026 in favor of Computer-delivered IELTS (with a 'Writing on Paper' option offered in select locations).",
-      "Computer-based IELTS was permanently cancelled so all tests must be handwritten in pencil.",
-      "The Speaking section was removed from IELTS Academic starting mid-2026.",
-      "IELTS scores were converted from Bands 1–9 to a 10–990 scale."
+      "Computer-based IELTS is being restricted to Academic candidates only, while General Training returns exclusively to paper delivery.",
+      "The face-to-face Speaking interview is being replaced globally by an automated AI voice bot starting mid-2026.",
+      "The 0–9 Band Scale is being replaced by a 100–200 numerical scale aligned with the Cambridge English Scale."
     ],
     correctIndex: 0,
     rationale: "Correct! On 5 March 2026, the IELTS partners announced that traditional paper-based IELTS is being phased out from mid-2026 toward computer delivery globally, while providing a 'Writing on Paper' option in select markets where candidates prefer handwriting their essays."
@@ -34,12 +34,12 @@ export const ieltsTheoryQuestions = [
     question: "What are the official eligibility rules for IELTS One Skill Retake (OSR)?",
     options: [
       "It is available after completing a full computer-based IELTS test, must be taken within 60 days of the original test date, and allows a maximum of 1 retake per full test.",
-      "Candidates can retake up to three skills on paper up to 2 years after the original test.",
-      "It is available without taking a full test first.",
-      "It automatically raises a candidate's score by 1.0 band without retesting."
+      "It is available for both paper-based and computer-based tests, must be taken within 90 days, and allows up to 2 skill retakes per full test.",
+      "It is restricted to Writing and Speaking only, must be booked within 30 days of receiving results, and replaces the original TRF permanently.",
+      "It allows candidates to combine their best four skill scores from any full IELTS exams taken over a 2-year validity period."
     ],
     correctIndex: 0,
-    rationale: "Correct! One Skill Retake (OSR) lets test-takers redo one of the four skills (L, R, W, or S) if they took a full IELTS on Computer test, provided they book and sit the retake within 60 days (maximum one retake per full test)."
+    rationale: "Correct! One Skill Retake (OSR) lets test-takers redo one of the four skills (L, R, W, or S) if they took a full IELTS on Computer test, provided they sit the retake within 60 days (maximum one retake per full test). Option D describes TOEFL MyBest scores, not IELTS OSR."
   },
   {
     id: "ielts-th-4",
@@ -48,9 +48,9 @@ export const ieltsTheoryQuestions = [
     question: "Which statement accurately contrasts IELTS Online with IELTS Life Skills?",
     options: [
       "IELTS Online is available for IELTS Academic only and is NOT accepted for visa/immigration purposes; IELTS Life Skills assesses Speaking and Listening only at CEFR A1, A2, or B1 and is graded Pass/Fail.",
-      "IELTS Online is exclusively for UK spouse visas, whereas IELTS Life Skills tests C2 academic writing.",
-      "Both IELTS Online and IELTS Life Skills award Bands 1–9 across all four skills.",
-      "IELTS Life Skills is a 3-hour reading and writing exam for medical doctors."
+      "IELTS Online covers both Academic and General Training for UKVI immigration; IELTS Life Skills assesses Reading and Writing at CEFR B1 and B2.",
+      "IELTS Online is taken at an authorized test center on a desktop computer; IELTS Life Skills is a remote-proctored at-home exam for university admission.",
+      "Both IELTS Online and IELTS Life Skills award half-band scores from 4.0 to 9.0 and allow One Skill Retake within 60 days."
     ],
     correctIndex: 0,
     rationale: "Correct! IELTS Online covers only the Academic module from home and is not accepted by immigration authorities. IELTS Life Skills tests only Speaking & Listening (at A1, A2, or B1 for UKVI family/settlement routes) with a Pass/Fail outcome."
@@ -62,12 +62,292 @@ export const ieltsTheoryQuestions = [
     question: "A candidate achieves Listening 6.5, Reading 6.5, Writing 6.0, and Speaking 6.0 (average = 6.25), while another achieves 6.5, 6.5, 6.0, 5.5 (average = 6.125). How are their Overall Band Scores rounded, and how many raw marks out of 40 typically equal Band 6.5 in Academic Reading/Listening?",
     options: [
       "6.25 rounds UP to 6.5 (.75 rounds up to the next whole band), whereas 6.125 rounds DOWN to 6.0; Band 6.5 in Academic R & L requires roughly 27–29/40.",
-      "Both 6.25 and 6.125 round down to 6.0; Band 6.5 requires 39/40.",
-      "6.25 rounds up to 7.0, and 6.125 rounds up to 6.5; Band 6.5 requires 15/40.",
-      "IELTS reports exact three-decimal averages without rounding."
+      "6.25 rounds DOWN to 6.0, whereas 6.75 rounds UP to 7.0; Band 6.5 in Academic R & L requires roughly 32–34/40.",
+      "Both 6.25 and 6.125 round UP to 6.5; Band 6.5 in Academic R & L requires roughly 23–25/40.",
+      "6.25 rounds UP to 6.5, whereas 6.125 rounds UP to 6.5; Band 6.5 in Academic R & L requires roughly 30–32/40."
     ],
     correctIndex: 0,
-    rationale: "Correct! In IELTS rounding rules, an average ending in .25 rounds up to the next half band (.5), .75 rounds up to the next whole band, and .125 or .625 rounds down. Achieving Band 6.5 (strong B2) typically requires ~27–29 out of 40 in Academic Reading and Listening."
+    rationale: "Correct! In IELTS rounding rules, an average ending in .25 rounds up to the next half band (.5), .75 rounds up to the next whole band, and .125 or .625 rounds down. Achieving Band 6.5 (strong B2) typically requires ~27–29 out of 40 in Academic Reading and Listening (whereas 30–32/40 is Band 7.0)."
+  },
+  {
+    id: "ielts-th-6",
+    module: "IELTS",
+    category: "Academic vs General Training Modules",
+    question: "How do the IELTS Academic and IELTS General Training modules compare across the four test sections?",
+    options: [
+      "All candidates take the exact same Listening and Speaking modules, but take different Reading and Writing modules tailored to academic study versus everyday/workplace contexts.",
+      "Academic and General Training use completely different tests across all four sections (Listening, Reading, Writing, and Speaking).",
+      "Only Writing Task 1 differs between Academic and General Training; Listening, Reading, and Speaking are 100% identical.",
+      "Academic includes four sections whereas General Training excludes the Writing section."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Listening and Speaking are identical for both IELTS Academic and IELTS General Training candidates, whereas Reading (3 long academic texts vs. everyday/workplace + 1 long text) and Writing (Task 1 visual data report vs. Task 1 letter) differ."
+  },
+  {
+    id: "ielts-th-7",
+    module: "IELTS",
+    category: "Listening Section 4-Part Progression",
+    question: "What is the exact progression of speaker interaction and context across the four parts (40 questions) of the IELTS Listening test?",
+    options: [
+      "Part 1: Everyday social conversation (2 speakers) → Part 2: Everyday social monologue (1 speaker) → Part 3: Educational/training discussion (2–4 speakers) → Part 4: Academic lecture monologue (1 speaker)",
+      "Part 1: Academic lecture (1 speaker) → Part 2: Seminar debate (3 speakers) → Part 3: Workplace phone call (2 speakers) → Part 4: Tour guide monologue (1 speaker)",
+      "Parts 1 and 2 are two-speaker conversations on academic topics, while Parts 3 and 4 are single-speaker monologues on social topics",
+      "All four parts consist of two-speaker academic office-hours conversations of equal difficulty"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS Listening progresses systematically along two axes: Social/Everyday context (Parts 1 & 2: conversation then monologue) to Academic/Educational context (Parts 3 & 4: multi-speaker discussion then university lecture monologue)."
+  },
+  {
+    id: "ielts-th-8",
+    module: "IELTS",
+    category: "Computer vs Paper Listening End-of-Test Timing",
+    question: "How does the end-of-test review time in Computer-delivered IELTS Listening differ from traditional Paper-based IELTS Listening?",
+    options: [
+      "In Computer-delivered IELTS, answers are typed directly onto the screen during the audio, so candidates are given 2 minutes at the end to review answers instead of the 10-minute transfer time used on paper.",
+      "Both Computer-delivered and Paper-based IELTS provide 10 full minutes at the end of the Listening audio to transfer answers.",
+      "Computer-delivered IELTS provides zero review time at the end of Listening and submits the test the instant the audio stops.",
+      "Computer-delivered IELTS allows candidates to pause and replay each audio section twice within a 45-minute window."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Because candidates type or click their answers directly on screen during IELTS on Computer, there is no separate paper answer sheet to copy onto—so 2 minutes are given at the end to check spelling and grammar (plus 30 seconds at the end of each part)."
+  },
+  {
+    id: "ielts-th-9",
+    module: "IELTS",
+    category: "Reading: True/False/Not Given vs Yes/No/Not Given",
+    question: "What is the precise distinction between 'True / False / Not Given' and 'Yes / No / Not Given' task types in IELTS Academic Reading?",
+    options: [
+      "True/False/Not Given tests whether statements match factual information in the text, whereas Yes/No/Not Given tests whether statements agree with the views, claims, or opinions of the writer.",
+      "True/False/Not Given is used only in Passage 1, whereas Yes/No/Not Given is used only in General Training.",
+      "In True/False/Not Given, candidates may write 'T/F/NG', whereas in Yes/No/Not Given candidates must write full-sentence explanations.",
+      "There is no difference in construct; examiners use them randomly for any factual table."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! TFNG evaluates factual propositions against objective facts in the passage, while YNNG evaluates whether a statement aligns with the author's argumentative claims/views (and candidates must never mix up writing 'True' on a 'Yes/No' question set!)."
+  },
+  {
+    id: "ielts-th-10",
+    module: "IELTS",
+    category: "Reading: False vs Not Given Distinction",
+    question: "In an IELTS Reading Passage, the text states: 'Urban planners historically selected tree species primarily for their ornamental appearance or rapid growth.' A test statement reads: 'Urban planners traditionally selected trees mainly because they were inexpensive.' Why is the answer NOT GIVEN rather than FALSE?",
+    options: [
+      "Because the passage contrasts ornamental appearance and rapid growth against local environmental suitability, and never mentions the financial cost or price of trees at all",
+      "Because the passage explicitly confirms that ornamental trees were the most expensive species available",
+      "Because 'inexpensive' is a direct synonym for 'ornamental appearance' in academic forestry",
+      "Because any statement containing the adverb 'mainly' is automatically graded TRUE in IELTS Reading"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In the EEI3316 course reading key ('Urban Trees and the Heat Problem', Q3), the passage discusses appearance vs. local environmental conditions and never mentions financial cost or price at all, so whether cost played a role is NOT GIVEN."
+  },
+  {
+    id: "ielts-th-11",
+    module: "IELTS",
+    category: "Writing: Task 1 vs Task 2 Scoring Weight",
+    question: "In the 60-minute IELTS Writing section, how are Task 1 (minimum 150 words, ~20 mins) and Task 2 (minimum 250 words, ~40 mins) weighted in calculating the overall Writing Band Score?",
+    options: [
+      "Task 2 carries twice the weight of Task 1 (Task 1 = 1/3 of the Writing score; Task 2 = 2/3 of the Writing score).",
+      "Task 1 and Task 2 are weighted equally (50% each) toward the final Writing band.",
+      "Task 1 accounts for 75% of the score in Academic, while Task 2 accounts for 25%.",
+      "Only the higher of the two task scores is reported as the final Writing band."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Writing Task 2 is worth two-thirds (2/3) of the total Writing score, while Writing Task 1 is worth one-third (1/3). Formula: (Task 1 + Task 2 + Task 2) / 3."
+  },
+  {
+    id: "ielts-th-12",
+    module: "IELTS",
+    category: "Writing: 4 Official Analytic Assessment Criteria",
+    question: "What are the exact four analytic criteria (each weighted 25%) used by examiners to grade IELTS Academic Writing Task 1 and Task 2?",
+    options: [
+      "Task Achievement (Task 1) / Task Response (Task 2), Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy",
+      "Delivery, Language Use, Topic Development, and Mechanics",
+      "Content Validity, Fluency and Pronunciation, Vocabulary Size, and Word Count",
+      "Introduction Clarity, Body Paragraph Length, Idiomatic Frequency, and Punctuation"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Each criterion accounts for 25% of the task score: TA (in Task 1) or TR (in Task 2), Coherence & Cohesion (CC), Lexical Resource (LR), and Grammatical Range & Accuracy (GRA)."
+  },
+  {
+    id: "ielts-th-13",
+    module: "IELTS",
+    category: "Academic Writing Task 1: The 'Overview' Requirement",
+    question: "According to the public IELTS Writing Task 1 Band Descriptors for Task Achievement, what is the critical difference between a Band 5 response and a Band 6+ response regarding the 'Overview'?",
+    options: [
+      "To achieve Band 6 or higher in Task Achievement, a candidate MUST include a clear Overview summarizing the main trends, stages, or differences; recounting detail mechanically with no clear overview caps TA at Band 5.",
+      "A candidate must include personal opinions and policy recommendations explaining why the statistics changed.",
+      "A candidate must copy every single number from the table into a bulleted list.",
+      "An Overview is forbidden in Task 1 and only allowed at the end of Task 2."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In IELTS Academic Writing Task 1, a clear Overview (highlighting the overarching trend or highest/lowest categories without getting lost in minor figures) is essential to reach Band 6, 7, or higher in Task Achievement."
+  },
+  {
+    id: "ielts-th-14",
+    module: "IELTS",
+    category: "Academic Writing Task 1: Data vs Non-Data Visuals",
+    question: "In addition to dynamic/static charts, graphs, and tables, which two non-numerical visual task types can appear in IELTS Academic Writing Task 1?",
+    options: [
+      "Process Diagrams (natural cycles or manufacturing stages) and Maps / Floor Plans (comparing a location across two time periods)",
+      "Comic strips and political cartoons requiring satirical analysis",
+      "Workplace photographs of employees in an office or warehouse",
+      "Incomplete email templates requiring a 150-word apology"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS Academic Task 1 includes Process Diagrams (requiring passive voice and sequencing markers for manufacturing, or active voice for natural cycles) and Map/Plan comparisons (requiring directional language and passive verbs of change like 'was converted into', 'was expanded')."
+  },
+  {
+    id: "ielts-th-15",
+    module: "IELTS",
+    category: "Speaking Section: 4 Official Assessment Criteria",
+    question: "What are the four equally weighted criteria (25% each) used by the human examiner to assess a candidate across the 11–14 minute IELTS Speaking test?",
+    options: [
+      "Fluency and Coherence (FC), Lexical Resource (LR), Grammatical Range and Accuracy (GRA), and Pronunciation (P)",
+      "Task Achievement, Eye Contact, British/American Accent Purity, and Speed of Speech",
+      "Part 1 Score (25%), Part 2 Score (50%), and Part 3 Score (25%)",
+      "Listening Comprehension, Note-Taking Speed, Rhetorical Organization, and Volume"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Examiners do not award separate scores for Part 1, Part 2, and Part 3; instead, they assess performance holistically across the entire interview on Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, and Pronunciation."
+  },
+  {
+    id: "ielts-th-16",
+    module: "IELTS",
+    category: "Speaking Parts 1, 2, & 3 Progression",
+    question: "How do the three parts of the IELTS Speaking test differ in timing, interaction format, and cognitive demand?",
+    options: [
+      "Part 1 (4–5m): Short Q&A on familiar personal topics → Part 2 (3–4m): Individual Long Turn (1m prep + 1–2m monologue on a Cue Card) → Part 3 (4–5m): Two-way abstract, analytical discussion linked to the Part 2 theme",
+      "Part 1 (2m): Reading a text aloud → Part 2 (5m): Describing a campus announcement → Part 3 (5m): Summarizing a biology lecture",
+      "Part 1 (5m): Abstract political debate → Part 2 (5m): Group roleplay with another test-taker → Part 3 (2m): Spelling test",
+      "All three parts consist of 45-second recorded monologues with 15 seconds of preparation time"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS Speaking moves from familiar everyday experience (Part 1), to an extended narrative/descriptive turn (Part 2 Cue Card: 1m prep, up to 2m talk), to abstract, societal, and speculative analysis (Part 3)."
+  },
+  {
+    id: "ielts-th-17",
+    module: "IELTS",
+    category: "Listening: Word Count & Hyphenated Word Rules",
+    question: "In an IELTS Listening or Reading task with the instruction 'Write ONE WORD AND/OR A NUMBER for each answer', which of the following responses would be marked INCORRECT due to exceeding the word limit?",
+    options: [
+      "'public library' (2 words—exceeds ONE WORD limit, whereas 'library' or '15th May' or hyphenated 'long-term' would be accepted within a one-word-and/or-a-number limit)",
+      "'long-term' (hyphenated compound words count as ONE word in IELTS)",
+      "'85' (counts as a number)",
+      "'Thursday' (counts as one word)"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In official IELTS marking rules, hyphenated words ('long-term', 'part-time', 'mother-in-law') count as ONE word, and '85 May' counts as 'one word and a number', whereas 'public library' is two separate words and violates 'ONE WORD AND/OR A NUMBER'."
+  },
+  {
+    id: "ielts-th-18",
+    module: "IELTS",
+    category: "Listening: Self-Correction & Distractor Traps",
+    question: "In IELTS Listening Section 1, a caller says: 'I'd like to book the workshop for Wednesday the 14th—oh, wait, my calendar says I have a dentist appointment that evening, so let's make it Thursday the 15th instead.' What listening subskill is being tested?",
+    options: [
+      "Tracking speaker self-correction and conversational repair to avoid selecting the initial distractor ('Wednesday the 14th')",
+      "Predicting technical academic vocabulary before the lecture begins",
+      "Inferring the speaker's attitude from rising intonation alone",
+      "Synthesizing three separate written passages"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS Listening Section 1 and 2 frequently feature 'distractor + correction' sequences where one speaker states a time, price, or postcode and either self-corrects or is corrected by the other speaker."
+  },
+  {
+    id: "ielts-th-19",
+    module: "IELTS",
+    category: "Reading: Matching Headings Strategy",
+    question: "When solving an IELTS Academic Reading 'Matching Headings' task (matching Roman numerals i–x to Paragraphs A–G), why is simply matching a single repeated noun between a heading and a paragraph dangerous?",
+    options: [
+      "Because 'Matching Headings' tests the global main idea (gist) of the entire paragraph, and distractors frequently repeat a prominent keyword from a single supporting detail sentence.",
+      "Because the correct heading never shares any meaning with the paragraph.",
+      "Because headings are always arranged in exact chronological order matching A to G.",
+      "Because each heading can be used up to four times in the same passage."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Matching Headings assesses skimming for the overarching main idea of each paragraph. Test writers intentionally craft distractor headings that lift an exact noun from a minor detail sentence."
+  },
+  {
+    id: "ielts-th-20",
+    module: "IELTS",
+    category: "Reading: Questions in Passage Order vs Out of Order",
+    question: "In IELTS Academic Reading, which group of question types almost always follows the sequential order of the text from top to bottom, versus appearing out of order across paragraphs?",
+    options: [
+      "Sequential order: True/False/Not Given, Yes/No/Not Given, Sentence Completion, and Short-Answer Questions | Out of order: Matching Headings, Matching Information ('Which paragraph contains...'), and Matching Features/Names",
+      "Sequential order: Matching Headings and Matching Information | Out of order: True/False/Not Given and Sentence Completion",
+      "Every single question type in IELTS Reading is scrambled randomly across the entire 900-word passage",
+      "None of the questions correspond to specific paragraphs"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Knowing which task types follow passage order (TFNG, YNNG, Sentence Completion, Multiple Choice) vs. which require whole-passage scanning (Matching Headings, Matching Paragraph Information) is a vital IELTS time-management strategy."
+  },
+  {
+    id: "ielts-th-21",
+    module: "IELTS",
+    category: "Academic Reading vs General Training Reading Band Scaling",
+    question: "Why does achieving Band 7.0 in IELTS General Training Reading typically require a higher raw score (~34–35/40) than achieving Band 7.0 in IELTS Academic Reading (~30–32/40)?",
+    options: [
+      "Because the texts in General Training Reading (everyday notices, workplace manuals, and one descriptive article) are linguistically less dense and complex than the three academic research passages in Academic Reading.",
+      "Because General Training Reading gives candidates 120 minutes instead of 60 minutes.",
+      "Because General Training Reading has only 20 questions instead of 40.",
+      "Because spelling errors are not penalized in Academic Reading."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! To equate the two modules onto the same CEFR/Band scale, the raw-to-band conversion table requires more correct items out of 40 on the simpler General Training texts than on the denser Academic texts."
+  },
+  {
+    id: "ielts-th-22",
+    module: "IELTS",
+    category: "Writing Task 2: Prompt Archetypes",
+    question: "A Task 2 prompt asks: 'Some people believe universities should prepare graduates for employment, while others argue universities should provide broad knowledge. Discuss both these views and give your own opinion.' What happens to a candidate's Task Response (TR) score if they only write about employment preparation and ignore the second view?",
+    options: [
+      "They only 'partially address' the task, which severely restricts their Task Response (TR) score to Band 5 (or lower) even if their grammar and vocabulary are strong.",
+      "They receive a full Band 8.0 as long as their essay exceeds 300 words.",
+      "The examiner grades only Lexical Resource and ignores Task Response.",
+      "They are automatically awarded an extra 10 minutes to add a conclusion."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! In a 'Discuss both views and give your own opinion' prompt, addressing only one side means the prompt is only partially addressed, capping Task Response at Band 5."
+  },
+  {
+    id: "ielts-th-23",
+    module: "IELTS",
+    category: "Speaking: Pronunciation Band Descriptors",
+    question: "According to the official IELTS Speaking Band Descriptors for 'Pronunciation', does a candidate need a native British or American accent to achieve Band 8 or Band 9?",
+    options: [
+      "No; the rubric evaluates intelligibility (being effortless to understand) and the effective use of phonological features such as word/sentence stress, intonation, and rhythm—L1 accent does not lower the score unless it impedes intelligibility.",
+      "Yes; any trace of a non-native L1 accent automatically caps Pronunciation at Band 5.5.",
+      "Yes; candidates must use Received Pronunciation (RP) throughout all three parts.",
+      "Pronunciation is only graded on how fast the candidate speaks per minute."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS explicitly distinguishes 'accent' from 'pronunciation/intelligibility'. Even at Band 8–9, a candidate is assessed on effortless intelligibility, accurate stress, rhythm, chunking, and intonation."
+  },
+  {
+    id: "ielts-th-24",
+    module: "IELTS",
+    category: "IELTS for UKVI (SELT)",
+    question: "How does 'IELTS for UKVI' (Secure English Language Test approved by the UK Home Office) compare to standard IELTS Academic or General Training in terms of test content and difficulty?",
+    options: [
+      "The test content, question types, timing, examiners, and difficulty level are 100% identical to standard IELTS; the only difference is enhanced security/biometric protocols at UKVI-approved test centers and a UKVI reference number on the TRF.",
+      "IELTS for UKVI is twice as long and tests British constitutional history.",
+      "IELTS for UKVI has no Speaking or Writing sections.",
+      "IELTS for UKVI is an unproctored mobile phone quiz."
+    ],
+    correctIndex: 0,
+    rationale: "Correct! IELTS for UKVI (Academic or General Training) has the exact same test items, format, and scoring as standard IELTS, but is administered under UK Home Office SELT security protocols."
+  },
+  {
+    id: "ielts-th-25",
+    module: "IELTS",
+    category: "Computer-Delivered IELTS Interface Tools",
+    question: "Which built-in on-screen features are provided to candidates taking Computer-delivered IELTS in the Reading and Writing sections?",
+    options: [
+      "Split-screen side-by-side passage and questions in Reading, text highlighting and digital sticky notes, copy/paste (Ctrl+C/Ctrl+V), and an automatic live word counter in Writing",
+      "An automatic grammar and spell-checker (like Grammarly) that corrects all essay mistakes in Writing",
+      "A built-in bilingual dictionary that translates any clicked word in the Reading passage",
+      "Voice-to-text dictation software that types the essay automatically"
+    ],
+    correctIndex: 0,
+    rationale: "Correct! Computer-delivered IELTS provides a side-by-side Reading view, highlight/notes tools, keyboard navigation, and an automatic live word counter in Writing (with spell-check disabled)."
   }
 ];
 
