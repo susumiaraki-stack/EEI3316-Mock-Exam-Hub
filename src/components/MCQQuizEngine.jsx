@@ -10,8 +10,19 @@ import {
   RotateCcw,
   Award,
   Sparkles,
-  Keyboard
+  Keyboard,
+  Shuffle
 } from 'lucide-react';
+
+// Fisher-Yates shuffle helper
+function shuffleArray(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 export default function MCQQuizEngine({
   questions,
@@ -24,14 +35,18 @@ export default function MCQQuizEngine({
   bookmarks = [],
   onToggleBookmark
 }) {
+  const [displayQuestions, setDisplayQuestions] = useState(questions);
+  const [isShuffled, setIsShuffled] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [localAnswers, setLocalAnswers] = useState({});
   const [flaggedIds, setFlaggedIds] = useState([]);
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(examDurationMinutes * 60);
 
-  // Reset exam state when switching mode or question set
+  // Sync displayQuestions when parent `questions` prop changes
   useEffect(() => {
+    setDisplayQuestions(questions);
+    setIsShuffled(false);
     setCurrentIndex(0);
     setExamSubmitted(false);
     setTimeLeft(examDurationMinutes * 60);
@@ -56,10 +71,10 @@ export default function MCQQuizEngine({
     return () => clearInterval(interval);
   }, [mode, examSubmitted, localAnswers]);
 
-  const currentQuestion = questions[currentIndex] || questions[0];
+  const currentQuestion = displayQuestions[currentIndex] || displayQuestions[0];
 
   const getSelectedOption = (qId) => {
-    if (mode === 'exam') {
+    if (mode === 'exam' || isShuffled) {
       return localAnswers[qId];
     }
     return localAnswers[qId] !== undefined ? localAnswers[qId] : savedAnswers[qId]?.selected;
@@ -88,7 +103,7 @@ export default function MCQQuizEngine({
   const handleExamSubmit = () => {
     setExamSubmitted(true);
     if (onAnswerRecord) {
-      questions.forEach((q) => {
+      displayQuestions.forEach((q) => {
         const chosen = localAnswers[q.id];
         if (chosen !== undefined) {
           onAnswerRecord(q.id, q.module, chosen, chosen === q.correctIndex);
@@ -97,7 +112,19 @@ export default function MCQQuizEngine({
     }
   };
 
+  const handleShuffleQuestions = () => {
+    setDisplayQuestions((prev) => shuffleArray(prev));
+    setIsShuffled(true);
+    setLocalAnswers({});
+    setFlaggedIds([]);
+    setExamSubmitted(false);
+    setCurrentIndex(0);
+    setTimeLeft(examDurationMinutes * 60);
+  };
+
   const handleRetake = () => {
+    setDisplayQuestions(questions);
+    setIsShuffled(false);
     setLocalAnswers({});
     setFlaggedIds([]);
     setExamSubmitted(false);
@@ -131,7 +158,7 @@ export default function MCQQuizEngine({
           handleSelectOption(idx);
         }
       } else if (e.key === 'Enter') {
-        if (currentIndex < questions.length - 1) {
+        if (currentIndex < displayQuestions.length - 1) {
           e.preventDefault();
           setCurrentIndex((prev) => prev + 1);
         }
@@ -140,7 +167,7 @@ export default function MCQQuizEngine({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentQuestion, currentIndex, questions.length, handleSelectOption]);
+  }, [currentQuestion, currentIndex, displayQuestions.length, handleSelectOption]);
 
   if (!currentQuestion) return null;
 
@@ -149,8 +176,8 @@ export default function MCQQuizEngine({
   const isBookmarked = bookmarks.includes(currentQuestion.id);
   const isFlagged = flaggedIds.includes(currentQuestion.id);
 
-  const answeredCount = questions.filter((q) => getSelectedOption(q.id) !== undefined).length;
-  const correctCount = questions.filter((q) => getSelectedOption(q.id) === q.correctIndex).length;
+  const answeredCount = displayQuestions.filter((q) => getSelectedOption(q.id) !== undefined).length;
+  const correctCount = displayQuestions.filter((q) => getSelectedOption(q.id) === q.correctIndex).length;
 
   const formatTimer = (sec) => {
     const m = Math.floor(sec / 60);
@@ -163,7 +190,7 @@ export default function MCQQuizEngine({
       {/* Header Bar */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
             <span className={`text-xs px-2.5 py-0.5 rounded-full font-semibold ${
               mode === 'exam'
@@ -172,12 +199,17 @@ export default function MCQQuizEngine({
             }`}>
               {mode === 'exam' ? 'Exam Simulation Mode' : 'Study Mode'}
             </span>
+            {isShuffled && (
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                Shuffled Order
+              </span>
+            )}
           </div>
           {subtitle && <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="hidden md:flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1.5 rounded-lg">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <div className="hidden xl:flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1.5 rounded-lg">
             <Keyboard className="w-3.5 h-3.5 text-indigo-500" />
             <span>Shortcuts: <kbd className="font-mono font-bold">1-4</kbd> or <kbd className="font-mono font-bold">A-D</kbd>, <kbd className="font-mono font-bold">Enter</kbd> Next</span>
           </div>
@@ -198,9 +230,18 @@ export default function MCQQuizEngine({
               onClick={handleExamSubmit}
               className="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm transition"
             >
-              Submit Exam ({answeredCount}/{questions.length})
+              Submit Exam ({answeredCount}/{displayQuestions.length})
             </button>
           )}
+
+          <button
+            onClick={handleShuffleQuestions}
+            title="Randomize / Shuffle Question Order"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 dark:bg-amber-950/50 dark:hover:bg-amber-900/60 dark:text-amber-300 dark:border-amber-800 transition"
+          >
+            <Shuffle className="w-3.5 h-3.5" />
+            Shuffle Qs
+          </button>
 
           <button
             onClick={handleRetake}
@@ -222,26 +263,35 @@ export default function MCQQuizEngine({
             <div>
               <h4 className="font-bold text-lg">Exam Simulation Diagnostic Complete!</h4>
               <p className="text-xs sm:text-sm text-indigo-100">
-                You scored <span className="font-bold text-white">{correctCount} / {questions.length}</span> ({Math.round((correctCount / questions.length) * 100)}%).
-                {correctCount / questions.length >= 0.7
+                You scored <span className="font-bold text-white">{correctCount} / {displayQuestions.length}</span> ({Math.round((correctCount / displayQuestions.length) * 100)}%).
+                {correctCount / displayQuestions.length >= 0.7
                   ? ' Meets CEFR B2 / TKT Band 3–4 Target Readiness!'
                   : ' Review the pedagogical rationales below to strengthen weak areas.'}
               </p>
             </div>
           </div>
-          <button
-            onClick={handleRetake}
-            className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-indigo-900 hover:bg-indigo-50 transition"
-          >
-            Retake Simulation
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleShuffleQuestions}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-amber-400 text-slate-950 hover:bg-amber-300 transition"
+            >
+              <Shuffle className="w-3.5 h-3.5" />
+              Retake (Shuffled)
+            </button>
+            <button
+              onClick={handleRetake}
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-indigo-900 hover:bg-indigo-50 transition"
+            >
+              Retake (Default Order)
+            </button>
+          </div>
         </div>
       )}
 
       {/* Navigation Palette */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-2.5 text-xs text-slate-500 dark:text-slate-400">
-          <span className="font-semibold uppercase tracking-wider">Question Navigation Palette ({answeredCount}/{questions.length} Answered)</span>
+          <span className="font-semibold uppercase tracking-wider">Question Navigation Palette ({answeredCount}/{displayQuestions.length} Answered)</span>
           {flaggedIds.length > 0 && (
             <span className="text-amber-600 dark:text-amber-400 font-medium">
               {flaggedIds.length} Flagged for Review
@@ -249,7 +299,7 @@ export default function MCQQuizEngine({
           )}
         </div>
         <div className="flex flex-wrap gap-1.5">
-          {questions.map((q, idx) => {
+          {displayQuestions.map((q, idx) => {
             const ans = getSelectedOption(q.id);
             const isCurr = idx === currentIndex;
             const flagged = flaggedIds.includes(q.id);
@@ -287,8 +337,13 @@ export default function MCQQuizEngine({
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3.5">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 dark:bg-indigo-950/80 dark:text-indigo-300">
-              Question {currentIndex + 1} of {questions.length}
+              Question {currentIndex + 1} of {displayQuestions.length}
             </span>
+            {currentQuestion.module && (
+              <span className="text-xs font-bold px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400">
+                {currentQuestion.module}
+              </span>
+            )}
             {currentQuestion.category && (
               <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">
                 {currentQuestion.category}
@@ -415,8 +470,8 @@ export default function MCQQuizEngine({
           </span>
 
           <button
-            onClick={() => setCurrentIndex((prev) => Math.min(questions.length - 1, prev + 1))}
-            disabled={currentIndex === questions.length - 1}
+            onClick={() => setCurrentIndex((prev) => Math.min(displayQuestions.length - 1, prev + 1))}
+            disabled={currentIndex === displayQuestions.length - 1}
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-40 transition"
           >
             Next Question
